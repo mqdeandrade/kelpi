@@ -116,6 +116,9 @@ export function PhoneRemoteWorkspace(props: PhoneRemoteWorkspaceProps): ReactEle
                         // editing chords itself, exactly as `RemoteWorkspaceView` has it do in
                         // `layout` mode above. Every remote render site owes this.
                         editingShortcuts
+                        // #328: its links resolve on its own daemon (a ⌘-click from an iPad's
+                        // keyboard; a phone has no hover and no plain-click link menu).
+                        linkCommands={runtime.commands}
                         onFocusRequest={(id) => runtime.focusPane(workspaceID, id)}
                         createRenderer={props.createRenderer}
                     />
